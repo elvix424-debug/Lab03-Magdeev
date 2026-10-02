@@ -143,21 +143,42 @@
 
 
 //Задание 2. Инкремент в выражении ★★
+// Console.WriteLine();
+
+// // 1 место просто вывод
+// int coins = 10;
+// Console.WriteLine($"coins++ выводит: {coins++}"); // выведет 10, потому что сначала берётся старое значение, а потом уже прибавляется 1
+// Console.WriteLine($"++coins выводит: {++coins}"); // выведет 12, потому что coins уже был 11 и сначала прибавляется 1, а потом выводится
+
+// // 2 место в математике
+// int level = 5;
+// int bonus1 = level++ * 2; // 5 * 2 = 10, умножается старое значение, а level потом стал 6
+// int bonus2 = ++level * 2; // level сначала стал 7, потом 7 * 2 = 14
+// Console.WriteLine($"bonus1 = {bonus1}, bonus2 = {bonus2}, level = {level}");
+
+// // 3 место при присваивании в другую переменную
+// int steps = 0;
+// int a = steps++; // в a попадает 0, потому что сначала присваивается, а потом steps становится 1
+// int b = ++steps; // steps сначала становится 2, и в b попадает уже 2
+// Console.WriteLine($"a = {a}, b = {b}, steps = {steps}");
+
+//Задание 3. Калькулятор скидки несколькими условиями★★★
 Console.WriteLine();
+Console.Write("Введите сумму покупки: ");
+double purchaseSum = double.Parse(Console.ReadLine());
 
-// 1 место просто вывод
-int coins = 10;
-Console.WriteLine($"coins++ выводит: {coins++}"); // выведет 10, потому что сначала берётся старое значение, а потом уже прибавляется 1
-Console.WriteLine($"++coins выводит: {++coins}"); // выведет 12, потому что coins уже был 11 и сначала прибавляется 1, а потом выводится
+Console.Write("Есть карта постоянного клиента? (1 - да, 0 - нет): ");
+int cardInput = int.Parse(Console.ReadLine());
+bool hasCard = (cardInput == 1);
 
-// 2 место в математике
-int level = 5;
-int bonus1 = level++ * 2; // 5 * 2 = 10, умножается старое значение, а level потом стал 6
-int bonus2 = ++level * 2; // level сначала стал 7, потом 7 * 2 = 14
-Console.WriteLine($"bonus1 = {bonus1}, bonus2 = {bonus2}, level = {level}");
+Console.Write("Введите количество товаров в чеке: ");
+int itemsCount = int.Parse(Console.ReadLine());
 
-// 3 место при присваивании в другую переменную
-int steps = 0;
-int a = steps++; // в a попадает 0, потому что сначала присваивается, а потом steps становится 1
-int b = ++steps; // steps сначала становится 2, и в b попадает уже 2
-Console.WriteLine($"a = {a}, b = {b}, steps = {steps}");
+bool isBigSum = purchaseSum >= 3000;
+bool isManyItems = itemsCount >= 3;
+bool eligibleForDiscount = (isBigSum && isManyItems) || hasCard;
+
+Console.WriteLine($"Сумма >= 3000: {isBigSum}");
+Console.WriteLine($"Товаров >= 3: {isManyItems}");
+Console.WriteLine($"Есть карта: {hasCard}");
+Console.WriteLine($"Положена скидка: {eligibleForDiscount}");
