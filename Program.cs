@@ -133,10 +133,31 @@
 // Console.WriteLine($"Проходит по правилам: {isEligibleByRules}");
 // Console.WriteLine($"Итоговый балл: {totalScore}");
 
+//Задание 1. Чётное или нечётное—без if ★
+// Console.WriteLine();
+// Console.Write("Введите целое число: ");
+// int number = int.Parse(Console.ReadLine());
 
+// bool isEven = number % 2 == 0;
+// Console.WriteLine($"Число {number} чётное: {isEven}");
+
+
+//Задание 2. Инкремент в выражении ★★
 Console.WriteLine();
-Console.Write("Введите целое число: ");
-int number = int.Parse(Console.ReadLine());
 
-bool isEven = number % 2 == 0;
-Console.WriteLine($"Число {number} чётное: {isEven}");
+// 1 место просто вывод
+int coins = 10;
+Console.WriteLine($"coins++ выводит: {coins++}"); // выведет 10, потому что сначала берётся старое значение, а потом уже прибавляется 1
+Console.WriteLine($"++coins выводит: {++coins}"); // выведет 12, потому что coins уже был 11 и сначала прибавляется 1, а потом выводится
+
+// 2 место в математике
+int level = 5;
+int bonus1 = level++ * 2; // 5 * 2 = 10, умножается старое значение, а level потом стал 6
+int bonus2 = ++level * 2; // level сначала стал 7, потом 7 * 2 = 14
+Console.WriteLine($"bonus1 = {bonus1}, bonus2 = {bonus2}, level = {level}");
+
+// 3 место при присваивании в другую переменную
+int steps = 0;
+int a = steps++; // в a попадает 0, потому что сначала присваивается, а потом steps становится 1
+int b = ++steps; // steps сначала становится 2, и в b попадает уже 2
+Console.WriteLine($"a = {a}, b = {b}, steps = {steps}");
